@@ -14,6 +14,7 @@
 		FAED2245256A454200928D4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAED2243256A454200928D4A /* LaunchScreen.storyboard */; };
 		FAED2250256A454300928D4A /* MymemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAED224F256A454300928D4A /* MymemoTests.swift */; };
 		FAED225B256A454300928D4A /* MymemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAED225A256A454300928D4A /* MymemoUITests.swift */; };
+		FAED2269256A469000928D4A /* MemoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAED2268256A469000928D4A /* MemoTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		FAED2256256A454300928D4A /* MymemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MymemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAED225A256A454300928D4A /* MymemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MymemoUITests.swift; sourceTree = "<group>"; };
 		FAED225C256A454300928D4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAED2268256A469000928D4A /* MemoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				FAED223A256A454100928D4A /* AppDelegate.swift */,
 				FAED223C256A454100928D4A /* ViewController.swift */,
 				FAED223E256A454100928D4A /* Main.storyboard */,
+				FAED2268256A469000928D4A /* MemoTableViewController.swift */,
 				FAED2241256A454200928D4A /* Assets.xcassets */,
 				FAED2243256A454200928D4A /* LaunchScreen.storyboard */,
 				FAED2246256A454200928D4A /* Info.plist */,
@@ -258,6 +261,7 @@
 			files = (
 				FAED223D256A454100928D4A /* ViewController.swift in Sources */,
 				FAED223B256A454100928D4A /* AppDelegate.swift in Sources */,
+				FAED2269256A469000928D4A /* MemoTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
