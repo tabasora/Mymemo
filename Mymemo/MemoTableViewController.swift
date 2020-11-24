@@ -9,39 +9,61 @@
 import UIKit
 
 class MemoTableViewController: UITableViewController {
-
+    
+    var memos = ["blue", "red", "pink"]
+    
+    @IBAction func unwindToMemoList(sender: UIStoryboardSegue) {
+        guard let sourceVC = sender.source as? MemoViewController, let memo = sourceVC.memo else {
+            return
+        }
+        self.memos.append(memo)
+        self.tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
+        
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.memos.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MemoTableViewCell", for: indexPath)
+        
         // Configure the cell...
-
+        cell.textLabel?.text = self.memos[indexPath.row]
+        
         return cell
     }
-    */
-
+    
+   /* override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?{
+        
+        return "section-\(section)"
+}
+   */
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
