@@ -10,19 +10,33 @@ import UIKit
 
 class MemoTableViewController: UITableViewController {
     
-    var memos = ["blue", "red", "pink"]
+    //UserDefaults
+    let userDefaults = UserDefaults.standard
+   // var memos = ["blue", "red", "pink"]
+    var memos = [String]()
     
     @IBAction func unwindToMemoList(sender: UIStoryboardSegue) {
         guard let sourceVC = sender.source as? MemoViewController, let memo = sourceVC.memo else {
             return
         }
-        self.memos.append(memo)
+        if let selectedIndexPah = self.tableView.indexPathForSelectedRow{
+            self.memos[selectedIndexPah.row] = memo
+          } else {
+            self.memos.append(memo)
+        }
+        self.userDefaults.set(self.memos, forKey: "memos")
         self.tableView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if self.userDefaults.object(forKey: "memos") != nil{
+            self.memos = self.userDefaults.stringArray(forKey: "memos")!
+        } else {
+            self.memos = ["memo1","memo2","memo3"]
+            
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -75,6 +89,7 @@ class MemoTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             self.memos.remove(at: indexPath.row)
+            self.userDefaults.set(self.memos, forKey: "memos")
             tableView.deleteRows(at: [indexPath], with: .fade)
         }    
     }
