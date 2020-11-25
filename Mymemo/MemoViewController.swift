@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MemoViewController: UITableViewController {
+class MemoViewController: UIViewController {
     
     var memo: String?
 
@@ -17,13 +17,21 @@ class MemoViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.saveButton.isEnabled = false
     }
     
-     override  func didReceiveMemoryWarning(){
+    @IBAction func memoTextFieldChanged(_ sender: Any) {
+        let memo = self.memoTextField.text ?? ""
+        self.saveButton.isEnabled = !memo.isEmpty
+    }
+    override  func didReceiveMemoryWarning(){
             super.didReceiveMemoryWarning()
             
         }
         
+    @IBAction func cancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     override func prepare(for segue: UIStoryboardSegue,sender: Any?){
         guard let button = sender as? UIBarButtonItem,button === self.saveButton else{
             return

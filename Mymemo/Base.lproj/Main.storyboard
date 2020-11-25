@@ -43,9 +43,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Memos" id="lGk-NO-aiV">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="NAK-6k-Gu9">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="nPy-HS-Py8">
                             <connections>
-                                <segue destination="iKb-BA-C4m" kind="presentation" identifier="addMemo" id="geW-yJ-XeN"/>
+                                <segue destination="iKb-BA-C4m" kind="presentation" identifier="addMemo" id="LKC-EV-fPz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -57,6 +57,8 @@
         <!--New Memo-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <exit id="4N9-IY-LeX" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="MemoViewController" customModule="Mymemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -67,6 +69,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="memoTextFieldChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="5vB-ku-JoW"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -79,7 +84,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="New Memo" id="3Fw-Fw-uJD">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="juJ-Vf-X6s"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="juJ-Vf-X6s">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="Nn1-jH-oMG"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="p9j-L7-bBp">
                             <connections>
                                 <segue destination="4N9-IY-LeX" kind="unwind" unwindAction="unwindToMemoListWithSender:" id="XdS-Hi-RhV"/>
@@ -91,8 +100,6 @@
                         <outlet property="saveButton" destination="p9j-L7-bBp" id="azD-Tb-8bv"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <exit id="4N9-IY-LeX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2380" y="48.125937031484263"/>
         </scene>
@@ -117,6 +124,7 @@
         <!--Navigation Controller-->
         <scene sceneID="nFI-rD-sOr">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ppw-9h-enF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iKb-BA-C4m" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oaD-As-wes">
@@ -128,7 +136,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="xlb-AM-WXH"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ppw-9h-enF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1440.8" y="48.125937031484263"/>
         </scene>
